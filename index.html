@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>jQuery ToDo App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="container app-container">
+                   <h1>jQuery ToDo App</h1>
+                    <form class="form-group" id="create-form">
+                        <input id="create-input" />
+                        <button class="btn btn-success">Create</button>
+                    </form>
+                    <div class="error-message"></div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="todos-list"></tbody>
+                    </table>
+                    <p id="no-todo">Nothing to do</p>
+                </div>
+            </div>
+        </div>    
+    </div>    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

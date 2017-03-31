@@ -1,0 +1,27 @@
+.todo-task {
+    color: red;
+    cursor: pointer;
+}
+
+.is-completed {
+    color: green;
+}
+
+.btn.btn-success.save-button {
+    display: none;
+}
+
+.btn.btn-danger.cancel-button {
+    display: none;
+}
+
+.error-message {
+    background: red;
+    color: white;
+    display: none;
+    width: 180px;
+}
+
+#no-todo {
+    display: none;
+}
