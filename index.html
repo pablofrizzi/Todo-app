@@ -9,31 +9,28 @@
 </head>
 
 <body>
-    <div class="container">
+    
+    <div class="container container--width-border">
         <div class="row">
-            <div class="col-md-12">
-                <div id="container app-container">
-                   <h1>jQuery ToDo App</h1>
-                    <form class="form-group" id="create-form">
-                        <input id="create-input" />
-                        <button class="btn btn-success">Create</button>
-                    </form>
-                    <div class="error-message"></div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Task</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="todos-list"></tbody>
-                    </table>
-                    <p id="no-todo">Nothing to do</p>
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
+                
+                <div class="panel panel-default add-todo-panel">
+                    <div class="panel-body">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="todo-input" placeholder="type in task">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="add-btn">Add</button>
+                        </div>    
+                    </div>    
                 </div>
+                
+                <p id="no-todo">Nothing to do</p>
+                <ul class="todos"></ul>
             </div>
         </div>    
-    </div>    
-    
+    </div>
+        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
 </body>

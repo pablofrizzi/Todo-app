@@ -1,27 +1,31 @@
-.todo-task {
-    color: red;
-    cursor: pointer;
+body {
+  border: none;
 }
 
-.is-completed {
-    color: green;
+.todos {
+    list-style-type: none;
 }
 
-.btn.btn-success.save-button {
-    display: none;
+.todos li {
+    margin-bottom: 40px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.btn.btn-danger.cancel-button {
-    display: none;
+.todos p {
+    margin: 0;
+    line-height: 26px;
+    padding-left: 3px;
 }
 
-.error-message {
-    background: red;
-    color: white;
-    display: none;
-    width: 180px;
+.display {
+    float: right;
+    position: relative;
+    bottom: 35px;
 }
 
-#no-todo {
-    display: none;
+.editing {
+    float: right;
+    position: relative;
+    bottom: 35px;
 }
