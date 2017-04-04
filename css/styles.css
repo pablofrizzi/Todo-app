@@ -16,7 +16,7 @@ body {
     margin: 0;
     line-height: 26px;
     padding-left: 3px;
-    max-width: 450px;
+    max-width: 430px;
 }
 
 .display {
@@ -29,11 +29,14 @@ body {
     float: right;
     position: relative;
     bottom: 35px;
-/*    display: none;*/
+    display: none;
 }
 
 .todo-edit-input {
-/*    display: none;*/
+    display: none;
     width: 350px;
 }
 
+#no-todo {
+    display: none;
+}
