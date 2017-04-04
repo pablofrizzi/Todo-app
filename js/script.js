@@ -19,8 +19,8 @@ var elements = {
 };
 
 function toggleAddButton() {
-    var inputContent = elements.todoInput.val();
-    if(inputContent.length > 0) {
+
+    if(elements.todoInput.val().length > 0) {
         elements.addButton.attr('disabled', false);
     } else {
         elements.addButton.attr('disabled', true);
@@ -29,9 +29,7 @@ function toggleAddButton() {
 }
 
 function showNoTodoText() {
-    var todoChildren = elements.todosList.children();
-
-    if(todoChildren.length === 0) {
+    if(elements.todosList.children().length === 0) {
         elements.noTodoText.show();
     }
 }
@@ -41,52 +39,48 @@ function hideNoTodoText() {
 }
 
 function getParentTodo(button) {
-    var todo = $(button).closest('.todo');
-    return todo;
+    return $(button).closest('.todo');
+}
+
+function getTodoProperties(todo) {
+     return {
+         todoText: todo.find('.content .todo-text'),
+         todoEditInput: todo.find('.content .todo-edit-input'),
+         editButtons: todo.find('.buttons .editing'),
+         displayButtons: todo.find('.buttons .display')
+     }
 }
 
 function cancelEdit() {
     var todo = getParentTodo(this);
-    var todoEditInput = todo.find('.content .todo-edit-input');
-    var todoText = todo.find('.content .todo-text');
-    var editButtons = todo.find('.buttons .editing');
-    var displayButtons = todo.find('.buttons .display');
+    var todoElements = getTodoProperties(todo);
 
-    editButtons.hide();
-    displayButtons.show();
-
-    todoEditInput.hide();
-    todoText.show();
+    todoElements.editButtons.hide();
+    todoElements.displayButtons.show();
+    todoElements.todoEditInput.hide();
+    todoElements.todoText.show();
 }
 
 function saveTodo() {
     var todo = getParentTodo(this);
-    var todoEditInput = todo.find('.content .todo-edit-input');
-    var todoText = todo.find('.content .todo-text');
-    var editButtons = todo.find('.buttons .editing');
-    var displayButtons = todo.find('.buttons .display');
+    var todoElements = getTodoProperties(todo);
   
-    editButtons.hide();
-    displayButtons.show();
-  
-    todoText.text(todoEditInput.val());
-    todoText.show();
-    todoEditInput.hide();  
+    todoElements.editButtons.hide();
+    todoElements.displayButtons.show();
+    todoElements.todoText.text(todoElements.todoEditInput.val());
+    todoElements.todoText.show();
+    todoElements.todoEditInput.hide();  
 }
 
 function startEditTodo() {
     var todo = getParentTodo(this);
-    var todoText = todo.find('.content .todo-text');
-    var todoEditInput = todo.find('.content .todo-edit-input');
-    var editButtons = todo.find('.buttons .editing');
-    var displayButtons = todo.find('.buttons .display');
-
-    displayButtons.hide();
-    editButtons.show();
-
-    todoText.hide();
-    todoEditInput.val(todoText.text());
-    todoEditInput.show();
+    var todoElements = getTodoProperties(todo);
+    
+    todoElements.displayButtons.hide();
+    todoElements.editButtons.show();
+    todoElements.todoText.hide();
+    todoElements.todoEditInput.val(todoElements.todoText.text());
+    todoElements.todoEditInput.show();
 }
 
 function addTodo() {
