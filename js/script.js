@@ -1,41 +1,41 @@
 $(document).ready(main);
 
 function main() {
-    elements.addButton.attr('disabled', true);
-    elements.todoInput.on('keyup', toggleAddButton);
-    elements.addButton.on('click', addTodo);
-    elements.todosList.on('click', '.delete-btn', deleteTodo);
-    elements.todosList.on('click', '.edit-btn', startEditTodo);
-    elements.todosList.on('click', '.save-btn', saveTodo);
-    elements.todosList.on('click', '.cancel-btn', cancelEdit);
+    addButton.attr('disabled', true);
+    todoInput.on('keyup', toggleAddButton);
+    addButton.on('click', addTodo);
+    todosList.on('click', '.delete-btn', deleteTodo);
+    todosList.on('click', '.edit-btn', startEditTodo);
+    todosList.on('click', '.save-btn', saveTodo);
+    todosList.on('click', '.cancel-btn', cancelEdit);
     
 }
 
-var elements = {
-    addButton: $('#add-btn'),
-    todosList: $('.todos'),
-    todoInput: $('#todo-input'),
-    noTodoText: $('#no-todo')
-};
+
+var addButton = $('#add-btn');
+var todosList = $('.todos');
+var todoInput = $('#todo-input');
+var noTodoText = $('#no-todo');
+
 
 function toggleAddButton() {
 
-    if(elements.todoInput.val().length > 0) {
-        elements.addButton.attr('disabled', false);
+    if(todoInput.val().length > 0) {
+        addButton.attr('disabled', false);
     } else {
-        elements.addButton.attr('disabled', true);
+        addButton.attr('disabled', true);
     }
 
 }
 
 function showNoTodoText() {
-    if(elements.todosList.children().length === 0) {
-        elements.noTodoText.show();
+    if(todosList.children().length === 0) {
+        noTodoText.show();
     }
 }
 
 function hideNoTodoText() {
-    elements.noTodoText.hide();
+    noTodoText.hide();
 }
 
 function getParentTodo(button) {
@@ -88,18 +88,13 @@ function addTodo() {
      
     todo.find('.buttons .editing').hide();
     todo.find('.content .todo-edit-input').hide();
-
-    todo.find('.todo-text').text( elements.todoInput.val() );
+    todo.find('.todo-text').text(todoInput.val() );
     todo.hide();
 
-    elements.todosList.append(todo);
-
+    todosList.append(todo);
     todo.fadeIn();
-
     hideNoTodoText();
-
-    elements.todoInput.val('');
-
+    todoInput.val('');
     toggleAddButton();
 }
 
