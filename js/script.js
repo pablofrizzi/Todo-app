@@ -81,6 +81,12 @@ function startEditTodo() {
     todoElements.todoText.hide();
     todoElements.todoEditInput.val(todoElements.todoText.text());
     todoElements.todoEditInput.show();
+    
+    function adjust() {
+        todo.find('textarea').css('height', 'auto').css('height', todo.find('textarea')[0].scrollHeight );
+    }
+    
+    todo.find('textarea').on('keyup', adjust);
 }
 
 function addTodo() {
@@ -112,7 +118,7 @@ var todoTemplate = `
     <li class="todo">
     <div class="content">
       <p class="todo-text"></p>
-      <input type="text" class="todo-edit-input">
+      <textarea class="form-control todo-edit-input"></textarea>
     </div>
     <div class="buttons">
       <div class="display">

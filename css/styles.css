@@ -19,6 +19,10 @@ body {
     max-width: 440px;
 }
 
+#todo-text {
+    max-width: 440px;
+}
+
 .display {
     float: right;
     position: relative;
