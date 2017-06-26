@@ -11,21 +11,17 @@ function main() {
     
 }
 
-
 var addButton = $('#add-btn');
 var todosList = $('.todos');
 var todoInput = $('#todo-input');
 var noTodoText = $('#no-todo');
 
-
 function toggleAddButton() {
-
     if(todoInput.val().length > 0) {
         addButton.attr('disabled', false);
     } else {
         addButton.attr('disabled', true);
     }
-
 }
 
 function showNoTodoText() {
@@ -115,19 +111,21 @@ function deleteTodo() {
 }
 
 var todoTemplate = `
-    <li class="todo">
-    <div class="content">
-      <p class="todo-text"></p>
-      <textarea class="form-control todo-edit-input"></textarea>
-    </div>
-    <div class="buttons">
-      <div class="display">
-        <button class="btn btn-info edit-btn">Edit</button>
-        <button class="btn btn-danger delete-btn">Delete</button>
-      </div>
-      <div class="editing">
-        <button class="btn btn-success save-btn">Save</button>
-        <button class="btn btn-danger cancel-btn">Cancel</button>
-      </div>
-    </div>
+    <li class="row todo">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="content">
+          <p class="todo-text"></p>
+          <textarea class="form-control todo-edit-input"></textarea>
+        </div>
+        <div class="buttons">
+          <div class="display">
+            <button class="btn btn-info edit-btn">Edit</button>
+            <button class="btn btn-danger delete-btn">Delete</button>
+          </div>
+          <div class="editing">
+            <button class="btn btn-success save-btn">Save</button>
+            <button class="btn btn-danger cancel-btn">Cancel</button>
+          </div>
+        </div>
+        </div>
     </li>`;
